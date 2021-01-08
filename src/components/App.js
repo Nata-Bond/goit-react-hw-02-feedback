@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Section from "./section/Section";
+import Test from "./section/test/Test";
 
 export default class App extends Component {
   state = {
@@ -32,8 +34,11 @@ export default class App extends Component {
     );
 
     return (
-      <div className="container">
-        <h2>Please leave feedback</h2>
+      <>
+        <Section title={"Please leave feedback"} children>
+          <Test />
+        </Section>
+
         <button type="button" onClick={() => this.addValue("good")}>
           Good
         </button>
@@ -49,7 +54,7 @@ export default class App extends Component {
         <p>Bad: {bad}</p>
         <p>Total: {totalFeedback}</p>
         <p>Positive feedback: {positiveFeedback}%</p>
-      </div>
+      </>
     );
   }
 }
