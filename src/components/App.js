@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Section from "./section/Section";
-import Test from "./section/test/Test";
+import FeedbackOptions from "./section/feedback-options/FeedbackOptions";
+import Statistics from "./section/statistics/Statistics";
+import { feedbackData } from "../data/feedbackData";
 
 export default class App extends Component {
   state = {
@@ -36,24 +38,19 @@ export default class App extends Component {
     return (
       <>
         <Section title={"Please leave feedback"} children>
-          <Test />
-        </Section>
+          <FeedbackOptions
+            options={feedbackData}
+            onLeaveFeedback={this.addValue}
+          />
 
-        <button type="button" onClick={() => this.addValue("good")}>
-          Good
-        </button>
-        <button type="button" onClick={() => this.addValue("neutral")}>
-          Neutral
-        </button>
-        <button type="button" onClick={() => this.addValue("bad")}>
-          Bad
-        </button>
-        <h2>Statistics</h2>
-        <p>Good: {good}</p>
-        <p>Neutral: {neutral}</p>
-        <p>Bad: {bad}</p>
-        <p>Total: {totalFeedback}</p>
-        <p>Positive feedback: {positiveFeedback}%</p>
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedback}
+            positiveFeedback={positiveFeedback}
+          />
+        </Section>
       </>
     );
   }
