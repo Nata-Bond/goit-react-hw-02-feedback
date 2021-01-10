@@ -24,7 +24,7 @@ export default class App extends Component {
   };
 
   countPositiveFeedbackPercentage = (a, b) => {
-    return Math.round((b / a) * 100);
+    return Math.round((b / a) * 100) || 0;
   };
 
   render() {
@@ -42,7 +42,8 @@ export default class App extends Component {
             options={feedbackData}
             onLeaveFeedback={this.addValue}
           />
-
+        </Section>
+        <Section title={"Statistics"} children>
           <Statistics
             good={good}
             neutral={neutral}
