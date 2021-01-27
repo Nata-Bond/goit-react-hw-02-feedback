@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Section from "./section/Section";
-import FeedbackOptions from "./section/feedback-options/FeedbackOptions";
-import Statistics from "./section/statistics/Statistics";
+import FeedbackOptions from "./feedback-options/FeedbackOptions";
+import Statistics from "./statistics/Statistics";
 import { feedbackData } from "../data/feedbackData";
 
 export default class App extends Component {
